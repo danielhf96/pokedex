@@ -3,6 +3,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { PokemonModule } from './pokemon/pokemon.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       'mongodb://admin:secret@localhost:27017/nest-pokedex?authSource=admin',
     ),
     PokemonModule,
+    CommonModule,
   ],
   controllers: [],
   providers: [],
