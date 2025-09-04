@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "0eb7dd57-6441-483d-bce0-1e50afe139b1",
+		"name": "pokedex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37008051"
+	},
+	"item": [
+		{
+			"name": "pokemon",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "Add pokemon",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"no\": 3,\n    \"name\": \"Pikachu Mujer test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/pokemon",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"pokemon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get pokemon",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/pokemon/pikachu",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"pokemon",
+										"pikachu"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Patch pokemon",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"no\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/pokemon/688efb01d44204c540af4302",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"pokemon",
+										"688efb01d44204c540af4302"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "pokemon",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/pokemon/688efb01d44204c540af4302",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"pokemon",
+										"688efb01d44204c540af4302"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3000/api",
+			"type": "string"
+		}
+	]
+}
