@@ -1,24 +1,23 @@
 import { Injectable } from '@nestjs/common';
-import axios, { AxiosInstance } from 'axios';
 import { PokeResponse } from './interfaces/poke-response-interface';
 import { InjectModel } from '@nestjs/mongoose';
 import { Pokemon } from 'src/pokemon/entities/pokemon.entity';
 import { Model } from 'mongoose';
+import { AxiosAdapter } from 'src/common/adapters/axios.adapter';
 
 @Injectable()
 export class SeedService {
-  private readonly axios: AxiosInstance = axios;
-
   constructor(
     @InjectModel(Pokemon.name)
     private readonly pokemonModel: Model<Pokemon>,
-  ) { }
+    private readonly httpAxios: AxiosAdapter,
+  ) {}
 
   /* De esta forma se hace una sola inserción en la Bd */
   async executeSeed() {
     // Limpiar la bd.
     await this.pokemonModel.deleteMany({});
-    const { data } = await this.axios.get<PokeResponse>(
+    const data = await this.httpAxios.get<PokeResponse>(
       'https://pokeapi.co/api/v2/pokemon?limit=650',
     );
 
@@ -38,7 +37,7 @@ export class SeedService {
   async executeSeedv2() {
     // Limpiar la bd.
     await this.pokemonModel.deleteMany({});
-    const { data } = await this.axios.get<PokeResponse>(
+    const data = await this.httpAxios.get<PokeResponse>(
       'https://pokeapi.co/api/v2/pokemon?limit=650',
     );
 
@@ -58,7 +57,7 @@ export class SeedService {
   async executeSeedv1() {
     // Limpiar la bd.
     await this.pokemonModel.deleteMany({});
-    const { data } = await this.axios.get<PokeResponse>(
+    const data = await this.httpAxios.get<PokeResponse>(
       'https://pokeapi.co/api/v2/pokemon?limit=650',
     );
 
